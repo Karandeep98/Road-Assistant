@@ -7,7 +7,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.telephony.SmsManager;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
@@ -18,7 +17,7 @@ public class EmergencyActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_emergency);
         Intent callIntent = new Intent(Intent.ACTION_CALL); //use ACTION_CALL class
-        callIntent.setData(Uri.parse("tel:8383887458"));    //this is the phone number calling
+        callIntent.setData(Uri.parse("tel:8512000830"));    //this is the phone number calling
         //check permission
         //If the device is running Android 6.0 (API level 23) and the app's targetSdkVersion is 23 or higher,
         //the system asks the user to grant approval.
@@ -45,9 +44,10 @@ public class EmergencyActivity extends AppCompatActivity {
         }else {
             try {
                 SmsManager smsManager = SmsManager.getDefault();
-                smsManager.sendTextMessage("8383887458", null, "Emergency Need Help!", null, null);
-                smsManager.sendTextMessage("8800306417", null, "Emergency Need Help!", null, null);
-//                smsManager.sendTextMessage("8368868476", null, "Emergency Need Help!", null, null);
+                smsManager.sendTextMessage("9811112802", null, "Emergency Need Help!", null, null);
+                smsManager.sendTextMessage("8512000830", null, "Emergency Need Help!", null, null);
+                smsManager.sendTextMessage("8700560880", null, "Emergency Need Help!", null, null);
+                smsManager.sendTextMessage("9568342760", null, "Emergency Need Help!", null, null);
 
                 Toast.makeText(getApplicationContext(), "Message Sent",
                         Toast.LENGTH_LONG).show();

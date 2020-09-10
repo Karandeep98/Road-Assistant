@@ -1,5 +1,6 @@
 package com.karandeep.pushnotifications
 
+import android.app.Dialog
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.content.Context
@@ -7,11 +8,14 @@ import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.view.MenuItem
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.messaging.FirebaseMessaging
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_main_layout.*
+import kotlinx.android.synthetic.main.addpopup.*
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
@@ -42,7 +46,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         nav_drawer.setOnClickListener {
             drawer.openDrawer(GravityCompat.START)
         }
-
+            addcontact.setOnClickListener {
+                showDialogAdd()
+            }
     }
     override fun onBackPressed() {
 
@@ -61,17 +67,36 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.nav_emergency->{
                 val i=Intent(this@MainActivity,EmergencyActivity::class.java)
                 startActivity(i)
-//                val callIntent = Intent(Intent.ACTION_CALL)
-//                callIntent.data = Uri.parse("tel:" + "8178358604")
-//                startActivity(callIntent)
             }
             R.id.nav_share->{
                 val i=Intent(this@MainActivity,ShareLocation::class.java)
                 startActivity(i)
             }
+            R.id.emergencyCall->{
+                val i=Intent(this@MainActivity,EmergencyCall::class.java)
+                startActivity(i)
+            }
+            R.id.nav_contact->{
+                val i=Intent(this@MainActivity,TextToSpeech::class.java)
+                startActivity(i)
+            }
+            R.id.nav_about->{
+                val i=Intent(this@MainActivity,SpeechToText::class.java)
+                startActivity(i)
+            }
         }
         drawer.closeDrawer(GravityCompat.START)
         return true
+    }
+    fun showDialogAdd() {
+        val dialogadd = Dialog(this@MainActivity)
+        dialogadd.setContentView(R.layout.addpopup)
+        //        dialogadd.setCanceledOnTouchOutside(false);
+        dialogadd.addtv.setOnClickListener {
+            newcontact.visibility=View.VISIBLE
+            dialogadd.cancel()
+        }
+        dialogadd.show()
     }
 
 //    override fun onNavDrawerOpen() {

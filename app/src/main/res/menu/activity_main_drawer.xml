@@ -19,7 +19,11 @@
             />
         <item
                 android:id="@+id/nav_emergency"
-                android:title="Emergency"
+                android:title="Emergency SMS"
+                />
+        <item
+                android:id="@+id/emergencyCall"
+                android:title="Emergency Call"
                 />
         <!--<item-->
             <!--android:id="@+id/nav_guide"-->
@@ -41,7 +45,7 @@
 
             <item
                 android:id="@+id/nav_about"
-                android:title="About Us"
+                android:title="Ask Assistant"
 
                 />
 
